@@ -1,45 +1,41 @@
 import { useState } from "react";
+import HomeIcon from "@mui/icons-material/Home";
+import ScienceIcon from "@mui/icons-material/Science";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import {NavLink} from "react-router"
 
-export default function Nav() {
-  const [physicsHovered, setPhysicsHovered] = useState(false);
+export default function Nav({setHidden, hidden, theme}) {
+
   return (
-    <aside className="w-72 h-screen bg-slate-500 text-white fixed left-0 top-0">
-      <nav className="flex flex-col p-4 space-y-4 text-left text-2xl">
-        <a href="" className="p-4 rounded-md bg-slate-600">
-          Home
-        </a>
+    <aside onMouseEnter={()=>(setHidden(false))} onMouseLeave={()=>(setHidden(true))} className={`h-screen bg-slate-500 text-white fixed left-0 top-0 ${hidden ? 'w-20' : 'w-72'} transition-[width]`}>
+      <nav className={`flex flex-col p-4 space-y-4 text-left text-2xl `}>
+        <div className="pl-2 transition duration-300 p-2 rounded-md bg-slate-600 flex items-center hover:cursor-pointer hover:bg-home-hover">
+          <HomeIcon sx={{ fontSize: 25 }} />
+          <a href="" className={`transition duration-300 ease-in pl-4 rounded-m ${hidden ? 'hidden' : ''}`}>
+            <NavLink to="/" end>
+              Home
+            </NavLink>
+          </a>
+        </div>
         <hr />
 
-        <a
-          href=""
-          className={` transition duration-300 ease-in p-4 rounded-md bg-slate-600 ${
-            physicsHovered ? "hidden" : ""
-          }`}
-          onMouseEnter={() => setPhysicsHovered(true)}
-        >
-          Physics
-        </a>
-        <div
-          onMouseLeave={() => setPhysicsHovered(false)}
-          className={`transition-[max-height_0.7s_ease-in-out,opacity_0.05s_ease-out] overflow-hidden flex-col bg-slate-700 rounded-md  ${
-            physicsHovered ? "flex max-h-200" : "max-h-0 opacity-0"
-          } `}
-        >
-          <a href="" className="p-4 rounded-md bg-slate-600">
-            Physics
+        <div className="pl-2 transition duration-300 ease-in p-2 rounded-md bg-slate-600 flex items-center hover:cursor-pointer hover:bg-physics-hover">
+          <ScienceIcon sx={{ fontSize: 25 }} />
+          <a
+            href=""
+            className={`transition duration-300 ease-in pl-4 rounded-m ${hidden ? 'hidden' : ''}`}
+          >
+            <NavLink to='/physics' end>
+              Physics
+            </NavLink>
           </a>
-          <div className="flex flex-col">
-            <a href="" className="p-4 mx-4 rounded-lg mb-4 mt-6 bg-slate-400">
-              Lab Work
-            </a>
-            <a href="" className="p-4 mx-4 rounded-lg mb-6 bg-slate-400">
-              Activities
-            </a>
-          </div>
         </div>
-        <a href="" className="p-4 rounded-md bg-slate-600">
-          Photography
-        </a>
+        <div className="pl-2 p-2 transition duration-300 rounded-md bg-slate-600 flex items-center hover:cursor-pointer hover:bg-photo-hover">
+          <CameraAltIcon sx={{ fontSize: 25 }} />
+          <a href="" className={`transition duration-300 ease-in pl-4 rounded-m ${hidden ? 'hidden' : ''}`}>
+            Photography
+          </a>
+        </div>
       </nav>
     </aside>
   );

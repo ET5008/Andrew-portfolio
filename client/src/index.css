@@ -1,1 +1,19 @@
-@import 'tailwindcss'
+@import 'tailwindcss';
+
+@theme {
+    --color-home-hover: #fff;
+    --color-home-background: #F7EDDA;
+    --color-home-primary: #FFA75F;
+    --color-home-secondary: #FFA76F;
+    --color-home-text:#09332C;
+    --color-home-accent:#2E4B3C;
+    --color-physics-hover: Gray;
+    --color-physics-background: #1857AF;
+    --color-physics-primary: #FFBF6B;
+    --color-physics-secondary: #71A9DB;
+    --color-physics-text:#FFD6B3;
+    --color-physics-accent:#3D80CB;
+    --color-photo-hover: Black;
+
+}
+

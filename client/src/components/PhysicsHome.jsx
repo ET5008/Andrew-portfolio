@@ -1,5 +1,5 @@
-import pfp from '../assets/AndrewPfp.jpg'
-export default function Home(){
+
+export default function PhysicsHome ({ theme }){
     return(
         <section id='Home' className="pl-72 h-[94vh] bg-home-background">
             <div className='flex'>
